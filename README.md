@@ -12,3 +12,9 @@ This Node.js application allows users to fetch and store Ethereum transactions a
 - **Example Request:**
   ```bash
   GET http://localhost:3000/api/transactions/0xce94e5621a5f7068253c42558c147480f38b5e0d
+
+  ### Task 2: Automated Ethereum Price Tracking
+- **Functionality: Fetches the current Ethereum price every 10 minutes using the CoinGecko API and stores it in MongoDB.
+- **Description: The system automatically schedules a job to fetch Ethereum prices every 10 minutes and stores them in the database.
+- **No Manual Endpoint: This task is handled automatically by the server.
+ 
