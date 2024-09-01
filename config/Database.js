@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 
 exports.connect = async ()=>{
-    mongoose.connect(process.env.URL,{
+ await   mongoose.connect(process.env.URL,{
         serverSelectionTimeoutMS: 30000,
         connectTimeoutMS: 30000,
       })
