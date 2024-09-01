@@ -1,9 +1,8 @@
 const express = require("express")
 const cookieParser = require('cookie-parser');
-const database = require("./config/Databse")
+const database = require("./config/Database")
 const router = require('./router/Router');
 const cors = require('cors');
-const { priceScheduler } = require("./util/scheduler");
 const { error } = require("./middleware/error");
 
 require('dotenv').config();
@@ -26,5 +25,4 @@ app.use(error);
 app.listen(PORT , () => {
     console.log(`Server Listening on ${PORT}`)
     database.connect().then();
-    priceScheduler();
 })
