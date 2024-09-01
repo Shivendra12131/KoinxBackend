@@ -61,3 +61,35 @@ exports.fetchEthereumPrice = async () => {
     }
 };
 
+exports.totalExpenses = async (req, res, next) => {
+    try {
+        let { address } = req.query;
+        if(!address) {
+            throw new ServerError("Missing address in request", 400);
+        }
+        address = address.toLowerCase();
+        const transactions = await Transaction.find({to:address});
+        const totalExpenses = transactions.reduce((total, transaction) => {
+            const gasUsed = parseFloat(transaction?.gasUsed);
+            const gasPrice = parseFloat(transaction?.gasPrice);
+            if (!gasUsed || !gasPrice) {
+                return total; 
+            }
+            const expense = (gasUsed * gasPrice) % 1e18;
+            return total + expense;
+        }, 0);
+        const latestPriceEntry = await EthereumPrice.findOne().sort({ timestamp: -1 });
+        if (!latestPriceEntry) {
+            throw new ServerError('No price data available', 400);
+        }
+        const finalPrice = latestPriceEntry?.price;
+        return res.status(200).json({
+            totalExpenses,
+            currentprice: finalPrice,
+        });
+    } catch (error) {
+        next(error);
+    }
+};
+
+
