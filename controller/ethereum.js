@@ -57,7 +57,7 @@ exports.fetchEthereumPrice = async () => {
         const ethPrice = response.data.ethereum.inr;
         await EthereumPrice.create({ price: ethPrice });
     } catch (error) {
-        console.log("Error fetching Ethereum price");
+        console.log("Error fetching Ethereum price",error.message);
     }
 };
 
