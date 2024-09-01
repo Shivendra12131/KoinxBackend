@@ -5,6 +5,7 @@ const router = require('./router/Router');
 const cors = require('cors');
 const { priceScheduler } = require("./util/scheduler");
 const { error } = require("./middleware/error");
+const mongoose = require("mongoose")
 
 require('dotenv').config();
 
@@ -22,7 +23,7 @@ app.use('/',router)
 
 //error handling middleware
 app.use(error);
-database.connect();
+  mongoose.connect( process.env.URL , {  serverSelectionTimeoutMS: 30000,})
 
 app.listen(PORT , () => {
     console.log(`Server Listening on ${PORT}`)
