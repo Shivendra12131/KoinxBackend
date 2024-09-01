@@ -5,7 +5,7 @@ const router = require('./router/Router');
 const cors = require('cors');
 const { priceScheduler } = require("./util/scheduler");
 const { error } = require("./middleware/error");
-const mongoose = require("mongoose")
+
 
 require('dotenv').config();
 
