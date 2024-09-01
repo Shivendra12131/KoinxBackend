@@ -1,7 +1,8 @@
 # Crypto Transaction and Ethereum Price Tracker
 
 This Node.js application allows users to fetch and store Ethereum transactions and prices. The application integrates with the Etherscan and CoinGecko APIs and uses MongoDB for storing data. It also provides an API to calculate a user's total expenses based on their Ethereum transactions.
-
+##DEployed Link:-`https://koinxbackend-3gpl.onrender.com/normal-transaction-address/:address`
+                `https://koinxbackend-3gpl.onrender.com/totalexpensesprice/:address`
 ## Features
 
 ### Task 1: Fetch and Store Crypto Transactions
