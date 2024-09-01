@@ -1,6 +1,7 @@
 const express = require('express');
 const axios = require('axios');
 const { getApi } = require('../util/Api');
+const EthereumPrice=require('../models/EthereumPrice')
 const Transaction = require('../models/Transaction');
 const ServerError = require('../error/ServerError');
 
@@ -44,3 +45,19 @@ exports.normalTransactionAddress = async (req, res, next) => {
         next(error);
     }
 };
+
+exports.fetchEthereumPrice = async () => {
+    try {
+        const response = await axios.get(process.env.COIN_GECKO_URL, {
+            params: {
+                ids: 'ethereum',
+                vs_currencies: 'inr',
+            },
+        });
+        const ethPrice = response.data.ethereum.inr;
+        await EthereumPrice.create({ price: ethPrice });
+    } catch (error) {
+        console.log("Error fetching Ethereum price");
+    }
+};
+
