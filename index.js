@@ -22,9 +22,10 @@ app.use('/',router)
 
 //error handling middleware
 app.use(error);
+database.connect()
 
 app.listen(PORT , () => {
     console.log(`Server Listening on ${PORT}`)
-    database.connect().then();
+ //   database.connect().then();
     priceScheduler();
 })
