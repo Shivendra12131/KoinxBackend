@@ -1,8 +1,19 @@
 # Crypto Transaction and Ethereum Price Tracker
 
 This Node.js application allows users to fetch and store Ethereum transactions and prices. The application integrates with the Etherscan and CoinGecko APIs and uses MongoDB for storing data. It also provides an API to calculate a user's total expenses based on their Ethereum transactions.
-##DEployed Link:-`https://koinxbackend-3gpl.onrender.com/normal-transaction-address/:address`
-                `https://koinxbackend-3gpl.onrender.com/totalexpensesprice/:address`
+
+## Deployed Link:-
+**Important**:
+Because of Inactivity the first hit will take little time as it is deployed on Render
+- **Task1**:
+  ```bash
+   https://koinxbackend-3gpl.onrender.com/normal-transaction-address/:address  
+Example: https://koinxbackend-3gpl.onrender.com/normal-transaction-address?address=0xc5102fE9359FD9a28f877a67E36B0F050d81a3CC
+- **Task1**:
+   ```bash
+   https://koinxbackend-3gpl.onrender.com/totalexpensesprice/:address  
+Example: https://koinxbackend-3gpl.onrender.com/totalexpensesprice?address=0xc5102fE9359FD9a28f877a67E36B0F050d81a3CC
+  
 ## Features
 
 ### Task 1: Fetch and Store Crypto Transactions
@@ -39,8 +50,8 @@ Prerequisites
 Installation
 
 	1.	Clone the repository:
-          git clone https://github.com/yourusername/crypto-tracker.git
-          cd crypto-tracker
+          git clone https://github.com/Shivendra12131/KoinxBackend.git
+          cd KoinxBackend
 	2.	Install dependencies:
           npm install
  	3.	Set up environment variables by creating a .env file in the root directory:
